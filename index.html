@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayCalculator | Nigerian SME Salary & Tax Estimator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>PayCalculator <span>Nigeria</span></h1>
+            <p>Calculate net salary, estimated tax (PAYE), and pension deductions instantly for Nigerian businesses.</p>
+        </header>
+
+        <div class="calculator-grid">
+            <!-- Input Form Card -->
+            <div class="card">
+                <h2>Salary & Allowances</h2>
+                <form id="salaryForm">
+                    <div class="form-group">
+                        <label for="basicSalary">Monthly Basic Salary (₦)</label>
+                        <input type="number" id="basicSalary" placeholder="e.g. 150000" required min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="housing">Housing Allowance (₦)</label>
+                        <input type="number" id="housing" placeholder="e.g. 30000" required min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="transport">Transport Allowance (₦)</label>
+                        <input type="number" id="transport" placeholder="e.g. 20000" required min="0" value="0">
+                    </div>
+
+                    <button type="submit" class="btn-calculate">Calculate Breakdown</button>
+                </form>
+            </div>
+
+            <!-- Results Display Card -->
+            <div class="card results-card" id="resultsCard">
+                <h2>Earnings & Deductions Summary</h2>
+                <div class="result-item">
+                    <span>Gross Monthly Income:</span>
+                    <strong id="resGross">₦0.00</strong>
+                </div>
+                <div class="result-item deduction">
+                    <span>Pension (8% Employee):</span>
+                    <strong id="resPension">-₦0.00</strong>
+                </div>
+                <div class="result-item deduction">
+                    <span>Estimated Tax (PAYE):</span>
+                    <strong id="resTax">-₦0.00</strong>
+                </div>
+                <div class="result-divider"></div>
+                <div class="result-item net-salary">
+                    <span>Net Take-Home Pay:</span>
+                    <strong id="resNet">₦0.00</strong>
+                </div>
+                
+                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="button" id="copyBtn" class="btn-secondary" style="flex: 1;">Copy Summary</button>
+                    <!-- Added Print / Save PDF Button -->
+                    <button type="button" id="printBtn" class="btn-secondary" style="flex: 1;">Print / Save PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Added Footer -->
+        <footer style="text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+            © 2026 Suleiman Nurain — Built with HTML, CSS, JS
+        </footer>
+    </div>
+
+    <!-- Added print trigger script -->
+    <script>
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+    <script src="pay.js"></script>
+</body>
+</html>
